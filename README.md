@@ -16,3 +16,21 @@
 ## Descrição
 
 Possibilita a criação de testes para PEP8 e PyLint que serão executados com nose
+
+
+## Exemplo
+
+```python
+import unittest
+from py_inspector import verificadores
+from seu_codigo import modulo_a_ser_validado
+
+class ValidandoPython(unittest.TestCase, verificadores.TestValidacaoPython):
+    def test_valida_pep8_em_serializacao(self):
+        arquivo = modulo_a_ser_validado.__file__.replace('pyc', 'py')
+        self.validacao_pep8([arquivo])
+
+    def test_valida_pylint_em_serializacao(self):
+        arquivo = modulo_a_ser_validado.__file__.replace('pyc', 'py')
+        self.validacao_pylint([arquivo])
+```
