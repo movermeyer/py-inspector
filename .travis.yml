@@ -18,5 +18,5 @@ deploy:
     secure: FleznOPMv5n/QClXONB3+VoWPCTbHIv+SDC8FgZKMfBAMioCXmL9zzXU/NKWZ2tLKZTsRwXiNG9wjvnt7QxT8V6pJf7tdnb+215+VA1+4qxXBwGlMRkUDst/ffHdXSkZ2klXemd3Cs8yYyUVoxkgETdovp262wnLE3qoFEcb0/8=
   on:
     tags: true
-    repo: maethorin/py-inspector
+    repo: Maethorin/py-inspector
     all_branches: true
