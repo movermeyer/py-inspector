@@ -9,13 +9,13 @@ def read(fname):
 
 
 setup(
-    name='li-common',
-    version='0.0.2',
-    url='https://github.com/lojaintegrada/LI-Common',
+    name='py-inspector',
+    version='0.0.1',
+    url='https://github.com/maethorin/py-inspector',
     license='MIT',
-    description='Lib para funcionalidades comuns aos aplicativos da Loja Integrada',
-    author=u'Loja Integrada',
-    author_email='suporte@lojaintegrada.com.br',
+    description='Possibilita a criação de testes para PEP8 e PyLint que serão executados com nose',
+    author=u'Márcio Duarte',
+    author_email='maethorin@gmail.com',
     long_description=read('README.md'),
     classifiers=[
         "Development Status :: 2 - Pre-Alpha",
@@ -30,5 +30,5 @@ setup(
     ],
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    install_requires=[],
+    install_requires=['pep8', 'pylint', 'nose'],
 )

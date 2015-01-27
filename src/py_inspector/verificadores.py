@@ -30,7 +30,7 @@ class WritableObject(object):
     def write(self, st):
         if st == '\n':
             return
-        if '*************' in st:
+        if '*****' in st:
             return
         self.content.append(st)
 
@@ -38,7 +38,7 @@ class WritableObject(object):
         return self.content
 
 
-class TestValidacaoPython(unittest.TestCase):
+class TestValidacaoPython(object):
     def validacao_pep8(self, arquivos):
         pep8style = pep8.StyleGuide(reporter=CustomReport)
         report = pep8style.init_report()

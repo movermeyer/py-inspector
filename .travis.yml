@@ -1,0 +1,24 @@
+language: python
+python:
+  - '2.7'
+
+install:
+  - pip install -e .
+  - pip install coveralls
+  - pip install sure
+
+script:
+  - rm -rf .coverage
+  - coverage2 run --branch `which nosetests`
+  - coverage2 report -m --fail-under=90
+
+after_success:
+  - coveralls
+
+deploy:
+  provider: pypi
+  user: maethorin
+  on:
+    tags: true
+    repo: maethorin/py-inspector
+    all_branches: true
