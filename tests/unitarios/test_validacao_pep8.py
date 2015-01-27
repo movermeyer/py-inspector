@@ -38,5 +38,6 @@ class ValidandoPep8(unittest.TestCase):
         verificadores.CustomReport.results = []
         validador = verificadores.TestValidacaoPython()
         from tests.unitarios import arquivo_com_erro_pep8
-        validador.validacao_pep8([arquivo_com_erro_pep8.__file__.replace('pyc', 'py')])
-        assert_mock.assert_called_with(False, 'PEP8 em /home/marcio/projects/py-inspector/tests/unitarios/arquivo_com_erro_pep8.py:16:5 - E303: too many blank lines (2)')
+        arquivo = arquivo_com_erro_pep8.__file__.replace('pyc', 'py')
+        validador.validacao_pep8([arquivo])
+        assert_mock.assert_called_with(False, 'PEP8 em {}:16:5 - E303: too many blank lines (2)'.format(arquivo))
