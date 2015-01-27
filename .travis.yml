@@ -1,23 +1,21 @@
 language: python
 python:
-  - '2.7'
-
+- '2.7'
 install:
-  - pip install -e .
-  - pip install coveralls
-  - pip install sure
-
+- pip install -e .
+- pip install coveralls
+- pip install sure
 script:
-  - rm -rf .coverage
-  - coverage2 run --branch `which nosetests`
-  - coverage2 report -m --fail-under=90
-
+- rm -rf .coverage
+- coverage2 run --branch `which nosetests`
+- coverage2 report -m --fail-under=90
 after_success:
-  - coveralls
-
+- coveralls
 deploy:
   provider: pypi
   user: maethorin
+  password:
+    secure: FleznOPMv5n/QClXONB3+VoWPCTbHIv+SDC8FgZKMfBAMioCXmL9zzXU/NKWZ2tLKZTsRwXiNG9wjvnt7QxT8V6pJf7tdnb+215+VA1+4qxXBwGlMRkUDst/ffHdXSkZ2klXemd3Cs8yYyUVoxkgETdovp262wnLE3qoFEcb0/8=
   on:
     tags: true
     repo: maethorin/py-inspector
