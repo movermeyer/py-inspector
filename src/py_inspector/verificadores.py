@@ -9,6 +9,10 @@ from pylint.reporters.text import TextReporter
 class CustomReport(pep8.StandardReport):
     results = []
 
+    def __init__(self, options):
+        super(CustomReport, self).__init__(options)
+        self.results = []
+
     def get_file_results(self):
         if self._deferred_print:
             self._deferred_print.sort()
