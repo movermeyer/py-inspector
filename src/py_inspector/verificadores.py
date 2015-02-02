@@ -64,7 +64,7 @@ class TestValidacaoPython(object):
             "-r",
             "n",
             "--msg-template='Pylint em {path}:{line}:{column} [{msg_id}: {msg} em {obj}]'",
-            '--disable=C0301,R0201,R0903',
+            '--disable=C0301,R0201,R0903,W0142',
             '--class-attribute-rgx=([A-Za-z_][A-Za-z0-9_]{2,60}|(__.*__))$',
             '--max-args=8'
         ]
