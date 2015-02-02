@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name='py-inspector',
-    version='0.0.3',
+    version='0.0.4',
     url='https://github.com/maethorin/py-inspector',
     license='MIT',
     description='Possibilita a criação de testes para PEP8 e PyLint que serão executados com nose',
