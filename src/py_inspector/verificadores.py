@@ -43,6 +43,14 @@ class WritableObject(object):
 
 
 class TestValidacaoPython(object):
+    def __init__(self):
+        self.desabilitados = ['C0301', 'R0201', 'W0142']
+        self.pylint_args = [
+            "-r",
+            "n",
+            "--msg-template='Pylint em {path}:{line}:{column} [{msg_id}: {msg} em {obj}]'",
+        ]
+
     def validacao_pep8(self, arquivos):
         pep8style = pep8.StyleGuide(reporter=CustomReport)
         report = pep8style.init_report()
@@ -60,15 +68,9 @@ class TestValidacaoPython(object):
             ))
 
     def validacao_pylint(self, arquivos):
-        args = [
-            "-r",
-            "n",
-            "--msg-template='Pylint em {path}:{line}:{column} [{msg_id}: {msg} em {obj}]'",
-            '--disable=C0301,R0201,R0903,W0142',
-            '--class-attribute-rgx=([A-Za-z_][A-Za-z0-9_]{2,60}|(__.*__))$',
-            '--max-args=8'
-        ]
+        if self.desabilitados:
+            self.pylint_args.append('--disable={}'.format(','.join(self.desabilitados)))
         pylint_output = WritableObject()
-        lint.Run(arquivos + args, reporter=TextReporter(pylint_output), exit=False)
+        lint.Run(arquivos + self.pylint_args, reporter=TextReporter(pylint_output), exit=False)
         for line in pylint_output.read():
             assert_true(False, line)
