@@ -44,7 +44,8 @@ class WritableObject(object):
 
 class TestValidacaoPython(object):
     def __init__(self):
-        self.desabilitados = ['C0301', 'R0201', 'W0142']
+        self.pylint_desabilitados = ['C0301', 'R0201', 'W0142']
+        self.pep8_desabilitados = ['E501']
         self.pylint_args = [
             "-r",
             "n",
@@ -56,7 +57,7 @@ class TestValidacaoPython(object):
         report = pep8style.init_report()
         pep8style.check_files(arquivos)
         for error in report.results:
-            if error['code'] == 'E501':
+            if error['code'] in self.pep8_desabilitados:
                 continue
             msg = "PEP8 em {path}:{row}:{col} - {code}: {text}"
             assert_true(False, msg.format(
@@ -68,8 +69,8 @@ class TestValidacaoPython(object):
             ))
 
     def validacao_pylint(self, arquivos):
-        if self.desabilitados:
-            self.pylint_args.append('--disable={}'.format(','.join(self.desabilitados)))
+        if self.pylint_desabilitados:
+            self.pylint_args.append('--disable={}'.format(','.join(self.pylint_desabilitados)))
         pylint_output = WritableObject()
         lint.Run(arquivos + self.pylint_args, reporter=TextReporter(pylint_output), exit=False)
         for line in pylint_output.read():
