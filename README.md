@@ -2,8 +2,8 @@
 
 ## Versão:
 
-[![PyPi version](https://pypip.in/v/py-inspector/badge.png)](https://pypi.python.org/pypi/py-inspector)
-[![PyPi downloads](https://pypip.in/d/py-inspector/badge.png)](https://pypi.python.org/pypi/py-inspector)
+[![PyPi version](https://img.shields.io/pypi/v/py-inspector.svg)](https://pypi.python.org/pypi/py-inspector)
+[![PyPi downloads](https://img.shields.io/pypi/dm/py-inspector.svg)](https://pypi.python.org/pypi/py-inspector)
 
 
 ## Build Status
